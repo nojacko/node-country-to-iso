@@ -67,3 +67,35 @@ describe("US variants", () => {
     expect(countryToAlpha2("United States of America")).toBe("US")
   });
 });
+
+describe("Republic of Korea variants", () => {
+  it("Korea, Republic of", () => {
+    expect(countryToAlpha2("Korea, Republic of")).toBe("KR")
+  });
+
+  it("Korea (Republic of)", () => {
+    expect(countryToAlpha2("Korea (Republic of)")).toBe("KR")
+  });
+
+  it("Republic of Korea", () => {
+    expect(countryToAlpha2("Republic of Korea")).toBe("KR")
+  });
+
+  it("South Korea", () => {
+    expect(countryToAlpha2("South Korea")).toBe("KR")
+  });
+});
+
+describe("Hong Kong variants", () => {
+  it("HKSAR", () => {
+    expect(countryToAlpha2("HKSAR")).toBe("HK")
+  });
+
+  it("Hong Kong", () => {
+    expect(countryToAlpha2("Hong Kong")).toBe("HK")
+  });
+
+  it("Hong Kong SAR China", () => {
+    expect(countryToAlpha2("Hong Kong SAR China")).toBe("HK")
+  });
+});
