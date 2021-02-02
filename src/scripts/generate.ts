@@ -52,6 +52,6 @@ for (const alpha2 of alpha2s) {
 
 fs.writeFileSync(namesFile, JSON.stringify(names, null, 2));
 
-console.log("Complete...");
+console.log("Generate complete...");
 console.log(`* Countries: ${alpha2s.length};`);
 console.log(`* Names: ${Object.keys(names).length}`);
