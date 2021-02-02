@@ -17,26 +17,32 @@ for (const alpha2 of alpha2s) {
 
     // Create new set to avoid duplicates
     const set = new Set(countryData.names);
-    set.forEach((name) => {
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
+            // We normalize all strings coming into library, so we don't need originals
+            set.delete(name);
             set.add(normalize(name));
         }
-    });
-    set.forEach((name) => {
+    }
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
             set.add(latinize(name));
         }
-    });
-    set.forEach((name) => {
+    }
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
             set.add(removeConjunctions(name));
         }
-    });
-    set.forEach((name) => {
+    }
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
             set.add(removeSpaces(name));
         }
-    });
+    }
 
     // Populate names
     set.forEach((name) => {
