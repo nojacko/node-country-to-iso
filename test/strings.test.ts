@@ -9,6 +9,14 @@ describe("normalize", () => {
     expect(normalize("test.test")).toBe("TEST TEST");
   });
 
+  it("Removes apostrophes", () => {
+    expect(normalize("test's test's")).toBe("TESTS TESTS");
+  });
+
+  it("Removes parentheses", () => {
+    expect(normalize("test (test)")).toBe("TEST TEST");
+  });
+
   it("Removes excess white space", () => {
     expect(normalize("test         test")).toBe("TEST TEST");
   });
