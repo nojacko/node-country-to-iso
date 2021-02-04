@@ -73,12 +73,20 @@ describe("US variants", () => {
     expect(countryToAlpha2("US of A")).toBe("US")
   });
 
+  it("US and A", () => {
+    expect(countryToAlpha2("US and A")).toBe("US")
+  });
+
   it("United States", () => {
     expect(countryToAlpha2("United States")).toBe("US")
   });
 
   it("United States of America", () => {
     expect(countryToAlpha2("United States of America")).toBe("US")
+  });
+
+  it("America", () => {
+    expect(countryToAlpha2("America")).toBe("US")
   });
 });
 
