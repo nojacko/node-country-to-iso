@@ -1,6 +1,14 @@
 import { countryToAlpha2 } from "../src/country-to-code";
 
-describe("Providing non-strings", () => {
+describe("Providing non-strings/short strings", () => {
+  it("empty string", () => {
+    expect(countryToAlpha2("")).toBe(null);
+  });
+
+  it("X", () => {
+    expect(countryToAlpha2("X")).toBe(null);
+  });
+
   it("null", () => {
     expect(countryToAlpha2(null)).toBe(null);
   });
