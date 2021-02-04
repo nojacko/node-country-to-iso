@@ -1,4 +1,4 @@
-import { normalize, removeSpaces, removeConjunctions} from "../src/strings";
+import { normalize, removeSpaces, removeConjunctions} from "../../src/utils/strings";
 
 describe("normalize", () => {
   it("Removes commas", () => {

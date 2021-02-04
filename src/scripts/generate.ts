@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { latinize } from "../latinize";
-import { normalize, removeSpaces, removeConjunctions } from "../strings";
+import { latinize } from "../utils/latinize";
+import { normalize, removeSpaces, removeConjunctions } from "../utils/strings";
 
 const dataDir = (__dirname.endsWith("src/scripts")) ? path.join(__dirname, "..", "..", "data") : path.join(__dirname, "..", "..", "..", "data");
 const alpha2sFiles = path.join(dataDir, "iso-alpha-2.json");
