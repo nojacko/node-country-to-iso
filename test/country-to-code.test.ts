@@ -1,5 +1,19 @@
 import { countryToAlpha2 } from "../src/country-to-code";
 
+describe("Providing non-strings", () => {
+  it("null", () => {
+    expect(countryToAlpha2(null)).toBe(null);
+  });
+
+  it("undefined", () => {
+    expect(countryToAlpha2(undefined)).toBe(null);
+  });
+
+  it("123", () => {
+    expect(countryToAlpha2(123)).toBe(null);
+  });
+});
+
 describe("Providing ISO 3166-1 alpha-2", () => {
   it("GB = GB", () => expect(countryToAlpha2("GB")).toBe("GB"));
   it("US = US", () => expect(countryToAlpha2("US")).toBe("US"));
@@ -59,11 +73,51 @@ describe("US variants", () => {
     expect(countryToAlpha2("US of A")).toBe("US")
   });
 
+  it("US and A", () => {
+    expect(countryToAlpha2("US and A")).toBe("US")
+  });
+
   it("United States", () => {
     expect(countryToAlpha2("United States")).toBe("US")
   });
 
   it("United States of America", () => {
     expect(countryToAlpha2("United States of America")).toBe("US")
+  });
+
+  it("America", () => {
+    expect(countryToAlpha2("America")).toBe("US")
+  });
+});
+
+describe("Republic of Korea variants", () => {
+  it("Korea, Republic of", () => {
+    expect(countryToAlpha2("Korea, Republic of")).toBe("KR")
+  });
+
+  it("Korea (Republic of)", () => {
+    expect(countryToAlpha2("Korea (Republic of)")).toBe("KR")
+  });
+
+  it("Republic of Korea", () => {
+    expect(countryToAlpha2("Republic of Korea")).toBe("KR")
+  });
+
+  it("South Korea", () => {
+    expect(countryToAlpha2("South Korea")).toBe("KR")
+  });
+});
+
+describe("Hong Kong variants", () => {
+  it("HKSAR", () => {
+    expect(countryToAlpha2("HKSAR")).toBe("HK")
+  });
+
+  it("Hong Kong", () => {
+    expect(countryToAlpha2("Hong Kong")).toBe("HK")
+  });
+
+  it("Hong Kong SAR China", () => {
+    expect(countryToAlpha2("Hong Kong SAR China")).toBe("HK")
   });
 });

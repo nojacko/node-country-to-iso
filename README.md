@@ -15,8 +15,10 @@ countryToAlpha2("USA"); // returns "US"
 countryToAlpha2("U S A"); // returns "US"
 countryToAlpha2("U.S.A"); // returns "US"
 countryToAlpha2("US of A"); // returns "US"
+countryToAlpha2("US and A"); // returns "US"
 countryToAlpha2("United States"); // returns "US"
 countryToAlpha2("United States of America"); // returns "US"
+countryToAlpha2("America"); // returns "US"
 ```
 
 ## Commands
