@@ -1,5 +1,19 @@
 import { countryToAlpha2 } from "../src/country-to-code";
 
+describe("Providing non-strings", () => {
+  it("null", () => {
+    expect(countryToAlpha2(null)).toBe(null);
+  });
+
+  it("undefined", () => {
+    expect(countryToAlpha2(undefined)).toBe(null);
+  });
+
+  it("123", () => {
+    expect(countryToAlpha2(123)).toBe(null);
+  });
+});
+
 describe("Providing ISO 3166-1 alpha-2", () => {
   it("GB = GB", () => expect(countryToAlpha2("GB")).toBe("GB"));
   it("US = US", () => expect(countryToAlpha2("US")).toBe("US"));
