@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { latinize } from "../latinize";
-import { normalize, removeSpaces, removeConjunctions } from "../strings";
+import { latinize } from "../utils/latinize";
+import { normalize, removeSpaces, removeConjunctions } from "../utils/strings";
 
 const dataDir = (__dirname.endsWith("src/scripts")) ? path.join(__dirname, "..", "..", "data") : path.join(__dirname, "..", "..", "..", "data");
 const alpha2sFiles = path.join(dataDir, "iso-alpha-2.json");
@@ -17,26 +17,32 @@ for (const alpha2 of alpha2s) {
 
     // Create new set to avoid duplicates
     const set = new Set(countryData.names);
-    set.forEach((name) => {
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
+            // We normalize all strings coming into library, so we don't need originals
+            set.delete(name);
             set.add(normalize(name));
         }
-    });
-    set.forEach((name) => {
+    }
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
             set.add(latinize(name));
         }
-    });
-    set.forEach((name) => {
+    }
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
             set.add(removeConjunctions(name));
         }
-    });
-    set.forEach((name) => {
+    }
+
+    for (const name of Array.from(set)) {
         if (typeof name === 'string') {
             set.add(removeSpaces(name));
         }
-    });
+    }
 
     // Populate names
     set.forEach((name) => {
@@ -52,6 +58,6 @@ for (const alpha2 of alpha2s) {
 
 fs.writeFileSync(namesFile, JSON.stringify(names, null, 2));
 
-console.log("Complete...");
+console.log("Generate complete...");
 console.log(`* Countries: ${alpha2s.length};`);
 console.log(`* Names: ${Object.keys(names).length}`);

@@ -1,6 +1,7 @@
 export const normalize = function(str: string): string {
   return str.toLocaleUpperCase()
-    .replace(/[,\.]/g, " ")
+    .replace(/[,\.\(\)]/g, " ")
+    .replace(/[']/g, "")
     .replace(/[\s]+/g, " ")
     .trim();
 }

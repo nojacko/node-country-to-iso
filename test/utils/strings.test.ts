@@ -1,4 +1,4 @@
-import { normalize, removeSpaces, removeConjunctions} from "../src/strings";
+import { normalize, removeSpaces, removeConjunctions} from "../../src/utils/strings";
 
 describe("normalize", () => {
   it("Removes commas", () => {
@@ -7,6 +7,14 @@ describe("normalize", () => {
 
   it("Removes fullstops", () => {
     expect(normalize("test.test")).toBe("TEST TEST");
+  });
+
+  it("Removes apostrophes", () => {
+    expect(normalize("test's test's")).toBe("TESTS TESTS");
+  });
+
+  it("Removes parentheses", () => {
+    expect(normalize("test (test)")).toBe("TEST TEST");
   });
 
   it("Removes excess white space", () => {

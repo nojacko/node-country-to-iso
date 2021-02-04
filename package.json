@@ -1,7 +1,7 @@
 {
   "name": "country-to-iso",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Convert inconsistent country names and codes into ISO 3166-1 alpha-2.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "directories": {
@@ -30,11 +30,22 @@
     "type": "git",
     "url": "git+https://github.com/nojacko/node-country-to-iso.git"
   },
-  "keywords": [],
   "author": "James Jackson",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nojacko/node-country-to-iso/issues"
   },
-  "homepage": "https://github.com/nojacko/node-country-to-iso#readme"
+  "homepage": "https://github.com/nojacko/node-country-to-iso#readme",
+  "keywords": [
+    "iso",
+    "3166",
+    "iso 3166",
+    "iso 3166-1",
+    "iso 3166-1 alpha-2",
+    "alpha",
+    "alpha-2",
+    "numeric",
+    "country",
+    "countries"
+  ]
 }
