@@ -902,7 +902,7 @@ const charMap : {[key: string]: string } = {
   'ю': 'yu'
 };
 
-export const latinize = function(str: string): string {
+export const latinize = function(str: any): string {
   if (typeof str === 'string') {
     return str.replace(/[^A-Za-z0-9]/g, (x) => charMap[x] || x);
   }

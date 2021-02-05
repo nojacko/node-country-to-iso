@@ -9,6 +9,10 @@ describe("Providing non-strings/short strings", () => {
     expect(countryToAlpha2("X")).toBe(null);
   });
 
+  it("  X   ", () => {
+    expect(countryToAlpha2("  X   ")).toBe(null);
+  });
+
   it("null", () => {
     expect(countryToAlpha2(null)).toBe(null);
   });
@@ -77,16 +81,19 @@ describe("US variants", () => {
     expect(countryToAlpha2("U.S.A")).toBe("US")
   });
 
-  it("US of A", () => {
-    expect(countryToAlpha2("US of A")).toBe("US")
+  it("USofA", () => {
+    expect(countryToAlpha2("USofA")).toBe("US")
   });
 
   it("US and A", () => {
     expect(countryToAlpha2("US and A")).toBe("US")
   });
-
   it("United States", () => {
     expect(countryToAlpha2("United States")).toBe("US")
+  });
+
+  it("UnitedStatesofAmerica", () => {
+    expect(countryToAlpha2("UnitedStatesofAmerica")).toBe("US")
   });
 
   it("United States of America", () => {
