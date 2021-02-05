@@ -1,4 +1,4 @@
-import { normalize, removeSpaces, removeConjunctions} from "../../src/utils/strings";
+import { normalize, removeSpaces } from "../../src/utils/strings";
 
 describe("normalize", () => {
   it("Removes commas", () => {
@@ -17,35 +17,37 @@ describe("normalize", () => {
     expect(normalize("test (test)")).toBe("TEST TEST");
   });
 
-  it("Removes excess white space", () => {
+  it("Removes all white space", () => {
     expect(normalize("test         test")).toBe("TEST TEST");
   });
 
   it("Trims", () => {
     expect(normalize(" test ")).toBe("TEST");
   });
+
+  it("The Gambia => GAMBIA", () => {
+    expect(normalize("The Gambia")).toBe("GAMBIA");
+  });
+
+  it("Territory of the Wallis and Futuna Island => TERRITORY WALLIS FUTUNA ISLAND", () => {
+    expect(normalize("Territory of the Wallis and Futuna Island")).toBe("TERRITORY WALLIS FUTUNA ISLAND");
+  });
+
+  it("Congo, Democratic Republic of the => CONGO DEMOCRATIC REPUBLIC", () => {
+    expect(normalize("Congo, Democratic Republic of the")).toBe("CONGO DEMOCRATIC REPUBLIC");
+  });
 });
 
 describe("removeSpaces", () => {
-  it("Removes spaces", () => {
-    expect(removeSpaces("   t e   s    t ")).toBe("test");
-  });
-});
-
-describe("removeConjunctions", () => {
-  it("and", () => {
-    expect(removeConjunctions("Test and Test")).toBe("Test Test");
+  it("test test => testest", () => {
+    expect(removeSpaces("test test")).toBe("testtest");
   });
 
-  it("of", () => {
-    expect(removeConjunctions("Test of Test")).toBe("Test Test");
+  it("test     test => testest", () => {
+    expect(removeSpaces("test     test")).toBe("testtest");
   });
 
-  it("&", () => {
-    expect(removeConjunctions("Test & Test")).toBe("Test Test");
-  });
-
-  it("&amp;", () => {
-    expect(removeConjunctions("Test &amp; Test")).toBe("Test Test");
+  it("    test test     => testest", () => {
+    expect(removeSpaces("    test test    ")).toBe("testtest");
   });
 });
