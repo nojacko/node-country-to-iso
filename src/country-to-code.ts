@@ -4,7 +4,7 @@ import * as path from "path";
 import { latinize } from "./utils/latinize";
 import { normalize, removeSpaces } from "./utils/strings";
 
-const rootDir = __dirname.replace(/(src|lib)(\/[a-z]+)?$/, "");
+const rootDir = __dirname.replace(/(src|lib)([\\\/]+[a-z]+)?$/, "");
 const dataDir = path.join(rootDir, "data");
 const alpha2s = JSON.parse(fs.readFileSync(path.join(dataDir, "iso-alpha-2.json")).toString());
 const alpha3s = JSON.parse(fs.readFileSync(path.join(dataDir, "iso-alpha-3.json")).toString());
