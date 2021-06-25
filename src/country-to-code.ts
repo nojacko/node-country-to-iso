@@ -8,6 +8,7 @@ const rootDir = __dirname.replace(/(src|lib)([\\\/]+[a-z]+)?$/, "");
 const dataDir = path.join(rootDir, "data");
 const alpha2s = JSON.parse(fs.readFileSync(path.join(dataDir, "iso-alpha-2.json")).toString());
 const alpha3s = JSON.parse(fs.readFileSync(path.join(dataDir, "iso-alpha-3.json")).toString());
+const alpha23s = JSON.parse(fs.readFileSync(path.join(dataDir, "iso-alpha-2-to-3.json")).toString());
 const names = JSON.parse(fs.readFileSync(path.join(dataDir, "names.json")).toString());
 
 /**
@@ -46,36 +47,15 @@ export const countryToAlpha2 = (str: any) : string|null  => {
 }
 
 /**
- * Convert almost anything to an ISO 3166-1 alpha-2 code.
+ * Convert almost anything to an ISO 3166-1 alpha-3 code.
  * @param str String to convert. Note: any is used so we can test non-string values returning null for CommonJS version.
  */
  export const countryToAlpha3 = (str: any) : string|null  => {
    
-  // Check it's a string at least 2 chars long
-  if (typeof str !== "string" || str.length < 2) {
-    return null;
-  }
+  const alpha2 = countryToAlpha2(str);
 
-  const country = removeSpaces(normalize(latinize(str)));
-
-  // Too short
-  if (country.length < 2) {
-    return null;
-  }
-
-  // Already ISO 3166 alpha 3
-  if (country.length === 3 && alpha3s.includes(country)) {
-    return country;
-  }
-
-  // Is ISO 3166 alpha 2
-  if (country.length === 2 && alpha2s[country]) {
-    return alpha2s[country];
-  }
-
-  // Exact match
-  if (names[country]) {
-    return names[country];
+  if (alpha2) {
+    return alpha23s[alpha2];
   }
 
   return null;
