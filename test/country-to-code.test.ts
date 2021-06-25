@@ -51,6 +51,10 @@ describe("GB variants", () => {
     expect(countryToAlpha2("United Kingdom")).toBe("GB")
   });
 
+  it("England", () => {
+    expect(countryToAlpha2("United Kingdom")).toBe("GB")
+  });
+
   it("United Kingdom of Great Britain", () => {
     expect(countryToAlpha2("United Kingdom of Great Britain")).toBe("GB")
   });
