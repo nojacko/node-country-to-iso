@@ -1,6 +1,6 @@
 {
   "name": "country-to-iso",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Convert inconsistent country names and codes into ISO 3166-1 alpha-2.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -24,7 +24,8 @@
     "seed": "node lib/cjs/scripts/seed",
     "generate": "node lib/cjs/scripts/generate",
     "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test-coverage": "jest --coverage",
+    "preversion": "npm test"
   },
   "repository": {
     "type": "git",
