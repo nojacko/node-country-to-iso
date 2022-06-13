@@ -1,15 +1,16 @@
-# Country to ISO 3166-1 alpha-2
+# Country to ISO 3166-1 alpha-2/alpha-3
 
-Convert inconsistent country names and codes into ISO 3166-1 alpha-2.
+Convert inconsistent country names and codes into ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3.
 
 The aim is support English only but some native languages are included.
 
 ## Usage
 
 ```node
-import { countryToAlpha2 } from "country-to-iso";
-// const { countryToAlpha2 } = require("country-to-iso");
+import { countryToAlpha2, countryToAlpha3 } from "country-to-iso";
+// const { countryToAlpha2, countryToAlpha3 } = require("country-to-iso");
 
+// countryToAlpha2
 countryToAlpha2("US"); // returns "US"
 countryToAlpha2("USA"); // returns "US"
 countryToAlpha2("U S A"); // returns "US"
@@ -19,6 +20,10 @@ countryToAlpha2("US and A"); // returns "US"
 countryToAlpha2("United States"); // returns "US"
 countryToAlpha2("United States of America"); // returns "US"
 countryToAlpha2("America"); // returns "US"
+
+// countryToAlpha3 
+countryToAlpha3("US"); // returns "USA"
+// etc...
 ```
 
 ## Commands

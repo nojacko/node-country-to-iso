@@ -2,9 +2,13 @@
   "alpha2": "GB",
   "alpha3": "GBR",
   "names": [
+    "England",
     "GB",
     "GBR",
     "Great Britain",
+    "N Ireland",
+    "Northern Ireland",
+    "Scotland",
     "UK",
     "United Kingdom of GB and NI",
     "United Kingdom of GB and Northern Ireland",
@@ -12,6 +16,7 @@
     "United Kingdom of Great Britain and NI",
     "United Kingdom of Great Britain and Northern Ireland",
     "United Kingdom of Great Britain",
-    "United Kingdom"
+    "United Kingdom",
+    "Wales"
   ]
 }

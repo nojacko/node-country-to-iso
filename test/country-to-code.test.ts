@@ -1,4 +1,4 @@
-import { countryToAlpha2 } from "../src/country-to-code";
+import { countryToAlpha2, countryToAlpha3 } from "../src/country-to-code";
 
 describe("Providing non-strings/short strings", () => {
   it("empty string", () => {
@@ -38,6 +38,19 @@ describe("Providing ISO 3166-1 alpha-3", () => {
   it("XXX = null", () => expect(countryToAlpha2("XXX")).toBe(null));
 });
 
+
+describe("Providing ISO 3166-1 alpha-3", () => {
+  it("GB = GB", () => expect(countryToAlpha3("GB")).toBe("GBR"));
+  it("US = US", () => expect(countryToAlpha3("US")).toBe("USA"));
+  it("XX = null", () => expect(countryToAlpha3("XX")).toBe(null));
+});
+
+describe("Providing ISO 3166-1 alpha-3", () => {
+  it("GBR = GB", () => expect(countryToAlpha3("GBR")).toBe("GBR"));
+  it("USA = US", () => expect(countryToAlpha3("USA")).toBe("USA"));
+  it("XXX = null", () => expect(countryToAlpha3("XXX")).toBe(null));
+});
+
 describe("GB variants", () => {
   it("Great Britain", () => {
     expect(countryToAlpha2("Great Britain")).toBe("GB")
@@ -51,6 +64,10 @@ describe("GB variants", () => {
     expect(countryToAlpha2("United Kingdom")).toBe("GB")
   });
 
+  it("England", () => {
+    expect(countryToAlpha2("England")).toBe("GB")
+  });
+
   it("United Kingdom of Great Britain", () => {
     expect(countryToAlpha2("United Kingdom of Great Britain")).toBe("GB")
   });
@@ -61,6 +78,36 @@ describe("GB variants", () => {
 
   it("United Kingdom of Great Britain and Northern Ireland", () => {
     expect(countryToAlpha2("United Kingdom of Great Britain and Northern Ireland")).toBe("GB")
+  });
+});
+
+describe("GB variants alpha 3", () => {
+  it("Great Britain", () => {
+    expect(countryToAlpha3("Great Britain")).toBe("GBR")
+  });
+
+  it("UK", () => {
+    expect(countryToAlpha3("UK")).toBe("GBR")
+  });
+
+  it("United Kingdom", () => {
+    expect(countryToAlpha3("United Kingdom")).toBe("GBR")
+  });
+
+  it("England", () => {
+    expect(countryToAlpha3("England")).toBe("GBR")
+  });
+
+  it("United Kingdom of Great Britain", () => {
+    expect(countryToAlpha3("United Kingdom of Great Britain")).toBe("GBR")
+  });
+
+  it("United Kingdom of Great Britain & Northern Ireland", () => {
+    expect(countryToAlpha3("United Kingdom of Great Britain & Northern Ireland")).toBe("GBR")
+  });
+
+  it("United Kingdom of Great Britain and Northern Ireland", () => {
+    expect(countryToAlpha3("United Kingdom of Great Britain and Northern Ireland")).toBe("GBR")
   });
 });
 

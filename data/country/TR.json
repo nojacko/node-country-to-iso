@@ -2,12 +2,13 @@
   "alpha2": "TR",
   "alpha3": "TUR",
   "names": [
-    "Turkey",
-    "Türkiye",
-    "Turkiye",
     "Republic of Turkey",
-    "Türkiye Cumhuriyeti",
+    "Republic of Türkiye",
     "TR",
-    "TUR"
+    "TUR",
+    "Turkey",
+    "Türkiye Cumhuriyeti",
+    "Turkiye",
+    "Türkiye"
   ]
 }

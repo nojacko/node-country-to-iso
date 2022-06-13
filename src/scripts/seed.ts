@@ -22,10 +22,12 @@ const dataDir = path.join(__dirname, "..", "..", "..", "data");
 const countryDir = path.join(dataDir, "country");
 const alpha2File = path.join(dataDir, "iso-alpha-2.json");
 const alpha3File = path.join(dataDir, "iso-alpha-3.json");
+const alpha23File = path.join(dataDir, "iso-alpha-2-to-3.json");
 
 const namesSeen : { [key: string]: string } = {};
 const alpha2s: Array<string> = []
 const alpha3s: {[key: string]: string} = {}
+const alpha23s: {[key: string]: string} = {}
 
 const loadCountryFile = function(file: string, alpha2: string, alpha3: string): CountryData {
     let data : CountryData = {
@@ -96,6 +98,7 @@ for (const letter1 of alphabet) {
             // ISO 3166
             alpha2s.push(alpha2);
             alpha3s[alpha3] = alpha2;
+            alpha23s[alpha2] = alpha3;
 
             // Load existing data
             const countryFile = path.join(countryDir, `${alpha2}.json`);
@@ -129,6 +132,7 @@ for (const letter1 of alphabet) {
 
 fs.writeFileSync(alpha2File, JSON.stringify(alpha2s, null, 2));
 fs.writeFileSync(alpha3File, JSON.stringify(alpha3s, null, 2));
+fs.writeFileSync(alpha23File, JSON.stringify(alpha23s, null, 2));
 
 console.log("Seed complete...");
 console.log(`* Countries: ${alpha2s.length};`);
