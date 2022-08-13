@@ -41,7 +41,7 @@ const loadCountryFile = function(file: string, alpha2: string, alpha3: string): 
         if (stat.isFile()) {
             data = JSON.parse(fs.readFileSync(file).toString());
         }
-    } catch (err) {
+    } catch (err: any) {
         // Ignore file doesn't exist error as we'll create it
         if (err.code !== "ENOENT") {
             console.log(file);
