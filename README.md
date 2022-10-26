@@ -6,6 +6,10 @@ The aim is support English only but some native languages are included.
 
 ## Usage
 
+```bash
+npm i country-to-iso
+```
+
 ```node
 import { countryToAlpha2, countryToAlpha3 } from "country-to-iso";
 // const { countryToAlpha2, countryToAlpha3 } = require("country-to-iso");
