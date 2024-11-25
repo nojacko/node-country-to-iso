@@ -183,3 +183,13 @@ describe("Hong Kong variants", () => {
     expect(countryToAlpha2("Hong Kong SAR China")).toBe("HK")
   });
 });
+
+describe("Kosovo variants", () => {
+  it("XKX", () => {
+    expect(countryToAlpha2("XKX")).toBe("XK")
+  });
+
+  it("KOSOVO", () => {
+    expect(countryToAlpha2("KOSOVO")).toBe("XK")
+  });
+});

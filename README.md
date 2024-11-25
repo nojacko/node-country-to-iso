@@ -25,7 +25,7 @@ countryToAlpha2("United States"); // returns "US"
 countryToAlpha2("United States of America"); // returns "US"
 countryToAlpha2("America"); // returns "US"
 
-// countryToAlpha3 
+// countryToAlpha3
 countryToAlpha3("US"); // returns "USA"
 // etc...
 ```
@@ -39,22 +39,37 @@ countryToAlpha3("US"); // returns "USA"
 | `npm run generate`     | Takes seeded data, makes variants of names, checks for clashes (there's no mechanism to handle clashes as it's not come up) and dumps the data to `data/names.json`. |
 | `npm test`     | Runs tests. |
 
-## Adding New Country Name Variants
+## Contributing
 
-### Update Seed Libraries
+### Adding a New Country or Variant
 
-```text
+Always run the following. It'll update everything from `countryjs` and `country-list` packages. It might include what you're looking for.
+
+```zsh
 npm update --save-dev countryjs country-list
 npm run seed
 npm run generate
 npm test
 ```
 
-### Manually Add Variants
+#### Country
+
+* Add the ISO 3166-1 alpha-2 code to `data/iso-alpha-2.json`
+* Add the ISO 3166-1 alpha-3 code to `data/iso-alpha-3.json`
+* Create a file for your new country `data/country/<COUNTRY_CODE>.json` following the format of the other countries.
+* Add some tests
+* Run the following:
+
+```zsh
+npm run generate
+npm run test
+```
+
+#### Variants
 
 Manually it manually to the correct `data/country/*.json` file and run:
 
-```text
+```zsh
 npm run generate
 npm test
 ```
