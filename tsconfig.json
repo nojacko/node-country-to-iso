@@ -8,6 +8,7 @@
     "outDir": "./lib/esm",
     "moduleResolution": "node",
     "baseUrl": ".",
+    "newLine": "LF",
     "paths": {
       "*": [
         "node_modules/*"
