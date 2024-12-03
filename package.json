@@ -12,7 +12,7 @@
     "@types/country-list": "^2.1.0",
     "@types/jest": "^26.0.24",
     "@typescript-eslint/parser": "^4.33.0",
-    "country-list": "^2.2.0",
+    "country-list": "^2.3.0",
     "countryjs": "^1.8.0",
     "i18n-iso-countries": "^6.8.0",
     "jest": "^26.6.3",
