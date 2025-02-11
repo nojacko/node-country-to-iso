@@ -52,7 +52,7 @@ npm run generate
 npm test
 ```
 
-#### Country
+#### Add a New Country
 
 * Add the ISO 3166-1 alpha-2 code to `data/iso-alpha-2.json`
 * Add the ISO 3166-1 alpha-3 code to `data/iso-alpha-3.json`
@@ -65,9 +65,11 @@ npm run generate
 npm run test
 ```
 
-#### Variants
+#### Add a New Variant
 
-Manually it manually to the correct `data/country/*.json` file and run:
+* Manually it to the `names` array in the correct `data/country/*.json` file
+* Add some tests
+* Run the following:
 
 ```zsh
 npm run generate

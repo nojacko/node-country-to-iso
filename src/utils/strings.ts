@@ -2,7 +2,11 @@ export const normalize = function(str: string): string {
   return str.toLocaleUpperCase()
     .replace(/[,\.\(\)]/g, " ")
     // Remove punctuation
-    .replace(/['\-]/g, "")
+    .replace(/["'`‘’“”]/g, "")
+    // Remove dashes and hyphens
+    .replace(/[-‐‑‒–—―]/g, "")
+    // Remove braces, brackets, and parentheses
+    .replace(/[{}\[\]()]/g, "")
     // Remove unimportant words
     .replace(/(^|\s)OF(\s|$)/gi, " ")
     .replace(/(^|\s)AND(\s|$)/gi, " ")

@@ -26,6 +26,18 @@ describe("Providing non-strings/short strings", () => {
   });
 });
 
+describe("Variants with different punctuation", () => {
+  it("Character: ‘", () => {
+    expect(countryToAlpha2("WAI‘TUKUBULI")).toBe("DM")
+  });
+  it("Character: '", () => {
+    expect(countryToAlpha2("People’s Republic of China")).toBe("CN")
+  });
+  it("Character: ’", () => {
+    expect(countryToAlpha2("People’s Republic of China")).toBe("CN")
+  });
+});
+
 describe("Providing ISO 3166-1 alpha-2", () => {
   it("GB = GB", () => expect(countryToAlpha2("GB")).toBe("GB"));
   it("US = US", () => expect(countryToAlpha2("US")).toBe("US"));
@@ -152,7 +164,7 @@ describe("US variants", () => {
   });
 });
 
-describe("Republic of Korea variants", () => {
+describe("South Korea variants", () => {
   it("Korea, Republic of", () => {
     expect(countryToAlpha2("Korea, Republic of")).toBe("KR")
   });
@@ -191,5 +203,11 @@ describe("Kosovo variants", () => {
 
   it("KOSOVO", () => {
     expect(countryToAlpha2("KOSOVO")).toBe("XK")
+  });
+});
+
+describe("Falkland Islands variants", () => {
+  it("FALKLAND ISLANDS (THE) [MALVINAS]", () => {
+    expect(countryToAlpha2("FALKLAND ISLANDS (THE) [MALVINAS]")).toBe("FK");
   });
 });
