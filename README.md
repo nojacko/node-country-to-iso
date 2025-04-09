@@ -4,6 +4,8 @@ Convert inconsistent country names and codes into ISO 3166-1 alpha-2 or ISO 3166
 
 The aim is support English only but some native languages are included.
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/nojacko)
+
 ## Usage
 
 ```bash
