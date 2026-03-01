@@ -1,0 +1,4 @@
+tag-version-prefix=""
+
+registry=https://registry.npmjs.org/
+//registry.npmjs.org/:_authToken=<TOKEN>
